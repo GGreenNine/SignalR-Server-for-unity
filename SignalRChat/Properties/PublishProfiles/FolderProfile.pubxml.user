@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется процессом публикации или упаковки вашего веб-проекта. Можно настроить поведение этого процесса,
+изменив этот файл MSBuild. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>B:\TestProjects\writing-game-server-client-creation-unity3d_game-server-client-creation-unity3d-materials\Part1\SignalR Chat\C#\SignalRChat\bin\Release\Publish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>10/23/2017 13:15:18</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>10/23/2017 13:15:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
+      <publishTime>04/03/2019 00:30:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.Core.pdb">
+      <publishTime>04/03/2019 07:19:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.SqlServer.dll">
+      <publishTime>04/03/2019 00:30:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.SqlServer.pdb">
+      <publishTime>04/03/2019 07:20:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.dll">
+      <publishTime>04/03/2019 00:30:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.pdb">
+      <publishTime>04/03/2019 07:20:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>01/13/2014 16:11:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>01/13/2014 16:11:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>01/13/2014 16:11:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>05/26/2016 23:10:22</publishTime>
+    </File>
+    <File Include="bin/ModelsLibrary.dll">
+      <publishTime>06/15/2019 21:03:58</publishTime>
+    </File>
+    <File Include="bin/ModelsLibrary.dll.config">
+      <publishTime>06/15/2019 18:30:27</publishTime>
+    </File>
+    <File Include="bin/ModelsLibrary.pdb">
+      <publishTime>06/15/2019 21:03:58</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/22/2019 01:06:16</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>05/26/2016 23:10:22</publishTime>
+    </File>
+    <File Include="bin/SignalRChat.dll">
+      <publishTime>06/15/2019 21:03:58</publishTime>
+    </File>
+    <File Include="bin/SignalRChat.pdb">
+      <publishTime>06/15/2019 21:03:58</publishTime>
+    </File>
+    <File Include="Default.html">
+      <publishTime>06/12/2019 16:26:18</publishTime>
+    </File>
+    <File Include="GameHubTest.html">
+      <publishTime>06/12/2019 20:30:42</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/15/2019 18:36:46</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.6.4.js">
+      <publishTime>06/06/2014 02:36:46</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.6.4.min.js">
+      <publishTime>06/06/2014 02:36:46</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.4.1.js">
+      <publishTime>06/12/2019 18:13:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.4.1.min.js">
+      <publishTime>06/12/2019 18:13:32</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/15/2019 21:03:58</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

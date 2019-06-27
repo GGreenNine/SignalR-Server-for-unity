@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="B:\TestProjects\writing-game-server-client-creation-unity3d_game-server-client-creation-unity3d-materials\Part1\SignalR Chat\C#" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="SignalRChat" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ChatHub.cs" t="Include" />
+        <e p="Default.html" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="jquery-1.6.4-vsdoc.js" t="Include" />
+          <e p="jquery-1.6.4.js" t="Include" />
+          <e p="jquery-1.6.4.min.js" t="Include" />
+          <e p="jquery.signalR-2.0.0.js" t="Include" />
+          <e p="jquery.signalR-2.0.0.min.js" t="Include" />
+        </e>
+        <e p="SignalRChat.csproj" t="IncludeRecursive" />
+        <e p="Startup.cs" t="Include" />
+        <e p="Web.config" t="Include" />
+        <e p="Web.Debug.config" t="Include" />
+        <e p="Web.Release.config" t="Include" />
+      </e>
+      <e p="SignalRChat.sln" t="IncludeFlat" />
+    </e>
+    <e p="C:\Users\uneex\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\uneex\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_SignalRChat.1476789255.00" t="ExcludeRecursive" />
+  </component>
+</project>
