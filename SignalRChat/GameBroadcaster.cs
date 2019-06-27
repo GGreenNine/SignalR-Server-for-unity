@@ -22,9 +22,9 @@ namespace SignalRChat
         private Timer _movingBroadcastLoop;
         private Timer _objectStateBroadcasterLoop;
 
-        private ConcurrentQueue<SyncObjectModel> _transfromsTemporaryStorage = new ConcurrentQueue<SyncObjectModel>();
-        private ConcurrentQueue<SyncObjectModel> _objectsToCreate = new ConcurrentQueue<SyncObjectModel>();
-        private ConcurrentQueue<SyncObjectModel> _objectsToDelete = new ConcurrentQueue<SyncObjectModel>();
+        public ConcurrentQueue<SyncObjectModel> _transfromsTemporaryStorage = new ConcurrentQueue<SyncObjectModel>();
+        public ConcurrentQueue<SyncObjectModel> _objectsToCreate = new ConcurrentQueue<SyncObjectModel>();
+        public ConcurrentQueue<SyncObjectModel> _objectsToDelete = new ConcurrentQueue<SyncObjectModel>();
 
         public GameBroadcaster()
         {
@@ -39,11 +39,12 @@ namespace SignalRChat
                 BroadcastInterval);
             // Start the broadcast states loop
             _objectStateBroadcasterLoop = new Timer(
-                BroadcastObjectsState,
+                BroadcastSceneCreate,
                 null,
                 BroadcastInterval,
                 BroadcastInterval);
         }
+
         public void BroadcastMoving(object state)
         {
             foreach (var item in _transfromsTemporaryStorage)
@@ -53,20 +54,28 @@ namespace SignalRChat
             _transfromsTemporaryStorage = new ConcurrentQueue<SyncObjectModel>();
         }
 
-        public void BroadcastObjectsState(object state)
+        public void BroadcastSceneCreate(object state)
         {
             foreach (var item in _objectsToCreate)
             {
-                _hubContext.Clients.AllExcept(item.UserModelId).GameBroadcaster_CreateModel(item);
+                _hubContext.Clients.Group(item.User.RoomModelId.ToString()).GameBroadcaster_CreateModel(item);
             }
             _objectsToCreate = new ConcurrentQueue<SyncObjectModel>();
+        }
+
+        public void BroadcastSceneDelete(object state)
+        {
+            foreach (var item in _objectsToCreate)
+            {
+                _hubContext.Clients.Group(item.User.RoomModelId.ToString()).GameBroadcaster_DeleteModel(item);
+            }
+            _objectsToDelete = new ConcurrentQueue<SyncObjectModel>();
         }
 
         public void CreateModel(SyncObjectModel model)
         {
             _objectsToCreate.Enqueue(model);
         }
-
 
     }
 }

@@ -32,7 +32,18 @@ namespace SignalRChat
                 db.SaveChangesAsync();
             }
 
-            _broadcaster.CreateModel(clientModel);
+            _broadcaster._objectsToCreate.Enqueue(clientModel);
+        }
+
+        public void DeleteModel(SyncObjectModel clientModel)
+        {
+            using (var db = new MultiplayerServerDB())
+            {
+                db.Models.Remove(clientModel);
+                db.SaveChangesAsync();
+            }
+
+            _broadcaster._objectsToDelete.Enqueue(clientModel);
         }
     }
 }

@@ -30,14 +30,23 @@ namespace SignalRChat
             user.connectionId = Context.ConnectionId;
             using (var db = new MultiplayerServerDB())
             {
-                if (db.Users.ToArray().Contains(user))
+                //if (db.Users.ToArray().Contains(user))
+                //{
+                //    _broadcaster.RegisterUser(null, Context.ConnectionId);
+                //    return;
+                //}
+                try
                 {
-                    _broadcaster.RegisterUser(null, Context.ConnectionId);
-                    return;
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    _broadcaster.RegisterUser(user);
                 }
-                db.Users.Add(user);
-                db.SaveChanges();
-                _broadcaster.RegisterUser(user);
+                catch (Exception e)
+                {
+                    var s = e.Message;
+                }
+
+
             }
         }
 

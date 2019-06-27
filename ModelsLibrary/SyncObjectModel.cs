@@ -24,8 +24,8 @@ namespace ModelsLibrary
         public UserModel User { get; set; }
 
         //Model current position
-        public JToken ModelPosition;
+        public string ModelPosition;
         //Model current rotation
-        public JToken ModelRotation;
+        public string ModelRotation;
     }
 }

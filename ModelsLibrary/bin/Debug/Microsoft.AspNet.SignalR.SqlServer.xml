@@ -12,15 +12,26 @@
             <param name="name">The resource name.</param>
             <returns>The embedded resource string.</returns>
         </member>
+        <member name="M:Microsoft.AspNet.SignalR.DependencyResolverExtensions.UseSqlServer(Microsoft.AspNet.SignalR.IDependencyResolver,System.String)">
+            <summary>
+            Use SQL Server as the messaging backplane for scaling out of ASP.NET SignalR applications in a web farm.
+            </summary>
+            <param name="resolver">The dependency resolver.</param>
+            <param name="connectionString">The SQL Server connection string.</param>
+            <returns>The dependency resolver.</returns>
+        </member>
+        <member name="M:Microsoft.AspNet.SignalR.DependencyResolverExtensions.UseSqlServer(Microsoft.AspNet.SignalR.IDependencyResolver,Microsoft.AspNet.SignalR.SqlScaleoutConfiguration)">
+            <summary>
+            Use SQL Server as the messaging backplane for scaling out of ASP.NET SignalR applications in a web farm.
+            </summary>
+            <param name="resolver">The dependency resolver.</param>
+            <param name="configuration">The SQL scale-out configuration options.</param>
+            <returns>The dependency resolver.</returns>
+        </member>
         <member name="T:Microsoft.AspNet.SignalR.SqlServer.ObservableDbOperation">
             <summary>
             A DbOperation that continues to execute over and over as new results arrive.
             Will attempt to use SQL Query Notifications, otherwise falls back to a polling receive loop.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNet.SignalR.SqlServer.ObservableDbOperation.CurrentNotificationState">
-            <summary>
-            For use from tests only.
             </summary>
         </member>
         <member name="M:Microsoft.AspNet.SignalR.SqlServer.ObservableDbOperation.ExecuteReaderWithUpdates(System.Action{System.Data.IDataRecord,Microsoft.AspNet.SignalR.SqlServer.DbOperation})">
@@ -65,22 +76,6 @@
             </summary>
             <param name="resolver">The resolver to use.</param>
             <param name="configuration">The SQL scale-out configuration options.</param>
-        </member>
-        <member name="M:Microsoft.AspNet.SignalR.DependencyResolverExtensions.UseSqlServer(Microsoft.AspNet.SignalR.IDependencyResolver,System.String)">
-            <summary>
-            Use SQL Server as the messaging backplane for scaling out of ASP.NET SignalR applications in a web farm.
-            </summary>
-            <param name="resolver">The dependency resolver.</param>
-            <param name="connectionString">The SQL Server connection string.</param>
-            <returns>The dependency resolver.</returns>
-        </member>
-        <member name="M:Microsoft.AspNet.SignalR.DependencyResolverExtensions.UseSqlServer(Microsoft.AspNet.SignalR.IDependencyResolver,Microsoft.AspNet.SignalR.SqlScaleoutConfiguration)">
-            <summary>
-            Use SQL Server as the messaging backplane for scaling out of ASP.NET SignalR applications in a web farm.
-            </summary>
-            <param name="resolver">The dependency resolver.</param>
-            <param name="configuration">The SQL scale-out configuration options.</param>
-            <returns>The dependency resolver.</returns>
         </member>
         <member name="T:Microsoft.AspNet.SignalR.SqlScaleoutConfiguration">
             <summary>
