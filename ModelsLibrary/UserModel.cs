@@ -13,8 +13,10 @@ namespace ModelsLibrary
 {
     public class UserModel : IEquatable<UserModel>
     {
-        public string connectionId { get; set; }
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int PlayerId { get; set; }
+        public string connectionId { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
 
@@ -24,9 +26,13 @@ namespace ModelsLibrary
         public RoomModel Rooms { get; set; }
 
         //Collection of user objects
-        [ForeignKey("UserModelId")]
-        public ICollection<SyncObjectModel> Models { get; set; }
+        [JsonIgnore]
+        public ICollection<SyncObjectModel> SyncObjectModel { get; set; }
 
+        public UserModel()
+        {
+            this.SyncObjectModel = new HashSet<SyncObjectModel>();
+        }
 
         public bool Equals(UserModel other)
         {

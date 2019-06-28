@@ -99,3 +99,5 @@ D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\S
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\SignalRChat.csproj.CopyComplete
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\SignalRChat.dll
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\SignalRChat.pdb
+D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.AspNet.SignalR.Core.pdb
+D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb

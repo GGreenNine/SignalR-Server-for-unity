@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,17 +16,23 @@ namespace ModelsLibrary
     public class SyncObjectModel
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string ModelId { get; set; }
         //Prefab name in Unity Resources folder.
         public string PrefabName { get; set; }
 
-        [Required]
-        public string UserModelId { get; set; }
-        public UserModel User { get; set; }
+        //Room Id witch user belongs
+        public int? PlayerId { get; set; }
+        public UserModel UserModel { get; set; }
+
+        public int? RoomModelId { get; set; }
+        [JsonIgnore]
+        public RoomModel Rooms { get; set; }
 
         //Model current position
-        public string ModelPosition;
+        public JObject ModelPosition;
         //Model current rotation
-        public string ModelRotation;
+        public JObject ModelRotation;
+
     }
 }

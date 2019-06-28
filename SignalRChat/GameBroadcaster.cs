@@ -19,6 +19,7 @@ namespace SignalRChat
         private readonly TimeSpan BroadcastInterval =
             TimeSpan.FromMilliseconds(40);
         private readonly IHubContext _hubContext;
+        private  IHubContext _userhubContext;
         private Timer _movingBroadcastLoop;
         private Timer _objectStateBroadcasterLoop;
 
@@ -47,18 +48,18 @@ namespace SignalRChat
 
         public void BroadcastMoving(object state)
         {
-            foreach (var item in _transfromsTemporaryStorage)
-            {
-                _hubContext.Clients.AllExcept(item.UserModelId).GameBroadcaster_UpdateTransforms(item);
-            }
-            _transfromsTemporaryStorage = new ConcurrentQueue<SyncObjectModel>();
+            //foreach (var item in _transfromsTemporaryStorage)
+            //{
+            //    _hubContext.Clients.AllExcept(item.RoomModelId).GameBroadcaster_UpdateTransforms(item);
+            //}
+            //_transfromsTemporaryStorage = new ConcurrentQueue<SyncObjectModel>();
         }
 
         public void BroadcastSceneCreate(object state)
         {
             foreach (var item in _objectsToCreate)
             {
-                _hubContext.Clients.Group(item.User.RoomModelId.ToString()).GameBroadcaster_CreateModel(item);
+                _hubContext.Clients.All.GameBroadcaster_CreateModel(item);
             }
             _objectsToCreate = new ConcurrentQueue<SyncObjectModel>();
         }
@@ -67,7 +68,7 @@ namespace SignalRChat
         {
             foreach (var item in _objectsToCreate)
             {
-                _hubContext.Clients.Group(item.User.RoomModelId.ToString()).GameBroadcaster_DeleteModel(item);
+                _hubContext.Clients.Group(item.RoomModelId.ToString()).GameBroadcaster_DeleteModel(item);
             }
             _objectsToDelete = new ConcurrentQueue<SyncObjectModel>();
         }

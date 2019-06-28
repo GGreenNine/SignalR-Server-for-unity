@@ -30,14 +30,9 @@ namespace SignalRChat
             user.connectionId = Context.ConnectionId;
             using (var db = new MultiplayerServerDB())
             {
-                //if (db.Users.ToArray().Contains(user))
-                //{
-                //    _broadcaster.RegisterUser(null, Context.ConnectionId);
-                //    return;
-                //}
                 try
                 {
-                    db.Users.Add(user);
+                    db.Users.AddOrUpdate(user);
                     db.SaveChanges();
                     _broadcaster.RegisterUser(user);
                 }
@@ -45,8 +40,6 @@ namespace SignalRChat
                 {
                     var s = e.Message;
                 }
-
-
             }
         }
 
@@ -55,6 +48,7 @@ namespace SignalRChat
             user.connectionId = Context.ConnectionId;
             using (var db = new MultiplayerServerDB())
             {
+                user.PlayerId = db.Users.SingleOrDefault((x) => x.UserName == user.UserName).PlayerId;
                 _broadcaster.UserAuthorization(db.Users.ToArray().Contains(user) ? user : null);
             }
         }
@@ -65,12 +59,12 @@ namespace SignalRChat
             {
                 int? roomMaxId = db.Rooms.Max(x => x.Id);
                 var room = db.Rooms.Find(roomMaxId);
-                var dbUser = db.Users.Find(user.UserName);
+                var dbUser = db.Users.Find(user.PlayerId);
 
                 if (room != null)
                 {
                     dbUser.RoomModelId = room.Id;
-                    db.SaveChangesAsync();
+                    db.SaveChanges();
                     await Groups.Add(Context.ConnectionId, roomMaxId.ToString());
                     _broadcaster.UserJoinedRoom(dbUser);
                 }

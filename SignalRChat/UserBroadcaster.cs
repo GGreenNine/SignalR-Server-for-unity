@@ -60,7 +60,7 @@ namespace SignalRChat
         /// <param name="user"></param>
         public void UserJoinedRoom(UserModel user)
         {
-            _hubContext.Clients.Group(user.RoomModelId.ToString()).UserJoinRoomStatus(user);
+            _hubContext.Clients.Group(user.RoomModelId.ToString(), user.connectionId).UserJoinRoomStatus(user);
         }
         /// <summary>
         /// User leaving the room broadcasting to all room clients, exclude current user
