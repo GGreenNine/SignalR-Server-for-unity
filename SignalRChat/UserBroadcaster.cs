@@ -30,6 +30,7 @@ namespace SignalRChat
         {
             // Save our hub context so we can easily use it 
             // to send to its connected clients
+
             _hubContext = GlobalHost.ConnectionManager.GetHubContext<UserHub>();
         }
 
@@ -53,22 +54,6 @@ namespace SignalRChat
         {
             _hubContext.Clients.Client(user.connectionId)
                 .AuthorizationStatus(user);
-        }
-        /// <summary>
-        /// User joining the room broadcasting to all room clients, exclude current user
-        /// </summary>
-        /// <param name="user"></param>
-        public void UserJoinedRoom(UserModel user)
-        {
-            _hubContext.Clients.Group(user.RoomModelId.ToString(), user.connectionId).UserJoinRoomStatus(user);
-        }
-        /// <summary>
-        /// User leaving the room broadcasting to all room clients, exclude current user
-        /// </summary>
-        /// <param name="user"></param>
-        public void UserLeavedRoom(UserModel user, string roomId)
-        {
-            _hubContext.Clients.Group(roomId).UserLeavedRoom(user);
         }
 
         public void FailedTaskMessage(string message, string connectionId)

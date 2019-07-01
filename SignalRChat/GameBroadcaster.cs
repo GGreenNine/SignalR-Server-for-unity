@@ -22,10 +22,12 @@ namespace SignalRChat
         private  IHubContext _userhubContext;
         private Timer _movingBroadcastLoop;
         private Timer _objectStateBroadcasterLoop;
+        private Timer _sceneUpdateBroadcasterLoop;
 
         public ConcurrentQueue<SyncObjectModel> _transfromsTemporaryStorage = new ConcurrentQueue<SyncObjectModel>();
         public ConcurrentQueue<SyncObjectModel> _objectsToCreate = new ConcurrentQueue<SyncObjectModel>();
         public ConcurrentQueue<SyncObjectModel> _objectsToDelete = new ConcurrentQueue<SyncObjectModel>();
+        public ConcurrentDictionary<string,SyncObjectModel[]> _sceneUpdate = new ConcurrentDictionary<string, SyncObjectModel[]>();
 
         public GameBroadcaster()
         {
@@ -44,22 +46,22 @@ namespace SignalRChat
                 null,
                 BroadcastInterval,
                 BroadcastInterval);
+            _sceneUpdateBroadcasterLoop = new Timer(
+                BroadcastSceneUpdate,
+                null,
+                BroadcastInterval,
+                BroadcastInterval);
         }
 
         public void BroadcastMoving(object state)
         {
-            //foreach (var item in _transfromsTemporaryStorage)
-            //{
-            //    _hubContext.Clients.AllExcept(item.RoomModelId).GameBroadcaster_UpdateTransforms(item);
-            //}
-            //_transfromsTemporaryStorage = new ConcurrentQueue<SyncObjectModel>();
         }
 
         public void BroadcastSceneCreate(object state)
         {
             foreach (var item in _objectsToCreate)
             {
-                _hubContext.Clients.All.GameBroadcaster_CreateModel(item);
+                _hubContext.Clients.Group(item.Rooms.Id.ToString()).GameBroadcaster_CreateModel(item);
             }
             _objectsToCreate = new ConcurrentQueue<SyncObjectModel>();
         }
@@ -73,9 +75,35 @@ namespace SignalRChat
             _objectsToDelete = new ConcurrentQueue<SyncObjectModel>();
         }
 
-        public void CreateModel(SyncObjectModel model)
+        public void BroadcastSceneUpdate(object state)
         {
-            _objectsToCreate.Enqueue(model);
+            foreach (var sceneUpdate in _sceneUpdate)
+            {
+                _hubContext.Clients.All.UpdateSceneFor(sceneUpdate.Value);
+            }
+            _sceneUpdate = new ConcurrentDictionary<string, SyncObjectModel[]>();
+        }
+
+        /// <summary>
+        /// User joining the room broadcasting to all room clients, exclude current user
+        /// </summary>
+        /// <param name="user"></param>
+        public void UserJoinedRoom(UserModel user)
+        {
+            _hubContext.Clients.Group(user.RoomModelId.ToString()).UserJoinRoomStatus(user);
+        }
+        /// <summary>
+        /// User leaving the room broadcasting to all room clients, exclude current user
+        /// </summary>
+        /// <param name="user"></param>
+        public void UserLeavedRoom(UserModel user, string roomId)
+        {
+            _hubContext.Clients.Group(roomId).UserLeavedRoom(user);
+        }
+
+        public void FailedTaskMessage(string message, string connectionId)
+        {
+            _hubContext.Clients.Client(connectionId).FailedTaskMessage(message);
         }
 
     }

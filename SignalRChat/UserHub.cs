@@ -53,47 +53,7 @@ namespace SignalRChat
             }
         }
 
-        public async Task JoinRoom(UserModel user)
-        {
-            using (var db = new MultiplayerServerDB())
-            {
-                int? roomMaxId = db.Rooms.Max(x => x.Id);
-                var room = db.Rooms.Find(roomMaxId);
-                var dbUser = db.Users.Find(user.PlayerId);
 
-                if (room != null)
-                {
-                    dbUser.RoomModelId = room.Id;
-                    db.SaveChanges();
-                    await Groups.Add(Context.ConnectionId, roomMaxId.ToString());
-                    _broadcaster.UserJoinedRoom(dbUser);
-                }
-                else
-                {
-                    db.Rooms.Add(new RoomModel());
-                    db.SaveChanges();
-                    await JoinRoom(user);
-                }
-            }
-        }
-
-        public void LeaveRoom(UserModel user)
-        {
-            using (var db = new MultiplayerServerDB())
-            {
-                var userDb = db.Users.Find(user.UserName);
-                if (userDb == null)
-                {
-                    _broadcaster.FailedTaskMessage("No such user found", user.connectionId);
-                    return;
-                }
-                var roomId = userDb.RoomModelId;
-                userDb.RoomModelId = null;
-                db.SaveChanges();
-                _broadcaster.UserLeavedRoom(userDb, roomId.ToString());
-            }
-            Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
-        }
 
     }
 

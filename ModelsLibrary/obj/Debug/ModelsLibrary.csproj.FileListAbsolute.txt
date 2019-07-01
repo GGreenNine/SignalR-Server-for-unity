@@ -69,4 +69,3 @@ D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug
 D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.pdb
 D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.Core.pdb
 D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.pdb
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.csprojAssemblyReference.cache
