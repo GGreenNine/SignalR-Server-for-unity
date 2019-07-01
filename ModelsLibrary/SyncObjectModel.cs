@@ -30,9 +30,10 @@ namespace ModelsLibrary
         public RoomModel Rooms { get; set; }
 
         //Model current position
-        public JObject ModelPosition;
+        public string ModelPosition { get; set; }
+
         //Model current rotation
-        public JObject ModelRotation;
+        public string ModelRotation { get; set; }
 
     }
 }
