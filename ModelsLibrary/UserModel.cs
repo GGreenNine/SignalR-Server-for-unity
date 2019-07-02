@@ -20,7 +20,7 @@ namespace ModelsLibrary
         public string UserName { get; set; }
         public string Password { get; set; }
 
-        //Room Id witch user belongs
+        //Room RoomModelId witch user belongs
         public int? RoomModelId { get; set; }
         [JsonIgnore]
         public RoomModel Rooms { get; set; }

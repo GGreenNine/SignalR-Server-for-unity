@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -33,28 +34,16 @@ namespace SignalRChat
         /// </summary>
         /// <param name="clientModel"></param>
         /// <param name="userModel"></param>
-        public void CreateModel(SyncObjectModel clientModel, UserModel userModel)
+        public void CreateModel(SyncObjectModel clientModel)
         {
             using (var db = new MultiplayerServerDB())
             {
                 db.Models.Add(clientModel);
                 db.SaveChanges();
-                /*
-                    * Ищем нашу модель в базе,
-                    * После чего присваиваем ей данные о юзере и комнате
-                    * Если сделать это раньше, например передвать модель уже с заданными параметрами
-                    * База данных не отразит данную информацию как положено
-                    * Она не поймет связей, получается нужно сделать 2 лишнии операции
-                    * todo Подумать как это исправить!
-                    */
-                var dbModel = db.Models.First(x => x.ModelId == clientModel.ModelId);
-                var dbUser = db.Users.Find(userModel.UserName);
-                var dbRoom = db.Rooms.Find(dbUser.RoomModelId);
 
-                dbModel.UserName = dbUser.UserName;
-                dbModel.RoomModelId = dbRoom.Id;
+                var dbModel = db.Models.Find(clientModel.ModelId);
 
-                db.SaveChanges();
+                var test1 = db.Rooms.Include(x => x.Users).Include(x => x.Models).ToList(); 
 
                 _broadcaster._objectsToCreate.Enqueue(dbModel);
             }
@@ -80,15 +69,15 @@ namespace SignalRChat
             _broadcaster._objectsToDelete.Enqueue(clientModel);
         }
 
-        public async Task  UpdateScene(UserModel userModel)
+        public async Task UpdateScene(UserModel userModel)
         {
             using (var db = new MultiplayerServerDB())
             {
-                var dbUser = db.Users.Find(userModel.PlayerId);
-                var sceneObjects = db.Models.Where(x => x.Rooms.Id == dbUser.RoomModelId).Select(x => x).ToArrayAsync();
-                await sceneObjects;
-                _broadcaster._sceneUpdate.TryAdd(dbUser.connectionId, sceneObjects.Result);
-                var test = _broadcaster._sceneUpdate;
+                //var dbUser = db.Users.Find(userModel.PlayerId);
+                //var sceneObjects = db.Models.Where(x => x.RoomModel.RoomModelId == dbUser.RoomModelId).Select(x => x).ToArrayAsync();
+                //await sceneObjects;
+                //_broadcaster._sceneUpdate.TryAdd(dbUser.connectionId, sceneObjects.Result);
+                //var test = _broadcaster._sceneUpdate;
             }
         }
 
@@ -102,13 +91,12 @@ namespace SignalRChat
         {
             using (var db = new MultiplayerServerDB())
             {
-                int? roomMaxId = db.Rooms.Max(x => x.Id);
-                var room = db.Rooms.Find(roomMaxId);
                 var dbUser = db.Users.Find(userModel.UserName);
 
-                if (room != null)
+                if (db.Rooms.Any())
                 {
-                    dbUser.RoomModelId = room.Id;
+                    var roomMaxId = db.Rooms.Max(x=> x.Id);
+                    dbUser.RoomModelId = roomMaxId;
                     db.SaveChanges();
                     await Groups.Add(Context.ConnectionId, roomMaxId.ToString());
                     _broadcaster.UserJoinedRoom(dbUser);
@@ -127,37 +115,36 @@ namespace SignalRChat
         /// <param name="user"></param>
         public void LeaveRoom(UserModel user)
         {
-            using (var db = new MultiplayerServerDB())
-            {
-                var userDb = db.Users.Find(user.UserName);
+            //using (var db = new MultiplayerServerDB())
+            //{
+            //    var userDb = db.Users.Find(user.UserName);
 
-                if (userDb == null)
-                {
-                    _broadcaster.FailedTaskMessage("No such userModel found", user.connectionId);
+            //    if (userDb == null)
+            //    {
+            //        _broadcaster.FailedTaskMessage("No such userModel found", user.connectionId);
 
-                    return;
-                }
+            //        return;
+            //    }
 
-                userDb.RoomModelId = null;
+            //    userDb.RoomModelId = null;
 
-                db.SaveChanges();
-                /*
-                 * Проверяем, если пользователь, покинувший комнату
-                 * был последним пользователем в команате, удалем её. /todo каскадное удаление.
-                 */
-                var dbRoom = db.Rooms.FirstOrDefault(x => x.Id == user.RoomModelId);
-                if (dbRoom != null && dbRoom.Users.Count <= 0)
-                {
-                    db.Rooms.Remove(dbRoom);
-                    db.SaveChanges();
+            //    /*
+            //     * Проверяем, если пользователь, покинувший комнату
+            //     * был последним пользователем в команате, удалем её. /todo каскадное удаление.
+            //     */
+            //    var dbRoom = db.Rooms.FirstOrDefault(x => x.RoomModelId == user.RoomModelId);
+            //    if (dbRoom != null && dbRoom.Users.Count <= 0)
+            //    {
+            //        db.Rooms.Remove(dbRoom);
 
-                    Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
+            //        Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
 
-                    return;
-                }
-                _broadcaster.UserLeavedRoom(userDb, userDb.RoomModelId.ToString());
-            }
-            Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
+            //        return;
+            //    }
+            //    db.SaveChanges();
+            //    _broadcaster.UserLeavedRoom(userDb, userDb.RoomModelId.ToString());
+            //}
+            //Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
         }
 
     }

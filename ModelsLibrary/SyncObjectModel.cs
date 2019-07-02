@@ -25,7 +25,7 @@ namespace ModelsLibrary
         public string PrefabName { get; set; }
 
         /// <summary>
-        /// Room Id witch user belongs
+        /// Room RoomModelId witch user belongs
         /// </summary>
         public string UserName { get; set; }
         public UserModel UserModel { get; set; }
@@ -33,9 +33,8 @@ namespace ModelsLibrary
         /// <summary>
         /// Room id the syncObjectModel is related for
         /// </summary>
-        public int? RoomModelId { get; set; }
-        [JsonIgnore]
-        public RoomModel Rooms { get; set; }
+        public int RoomModelId { get; set; }
+        public RoomModel RoomModel { get; set; }
 
         /// <summary>
         /// Model current rotation

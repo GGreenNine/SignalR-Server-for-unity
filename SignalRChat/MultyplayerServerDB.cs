@@ -18,6 +18,7 @@ namespace SignalRChat
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
         }
     }
 }

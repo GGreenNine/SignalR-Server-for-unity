@@ -68,7 +68,7 @@ namespace SignalRChat
         {
             foreach (var item in _objectsToCreate)
             {
-                _hubContext.Clients.Group(item.Rooms.Id.ToString()).GameBroadcaster_CreateModel(item);
+                //_hubContext.Clients.Group(item.RoomModel.RoomModelId.ToString()).GameBroadcaster_CreateModel(item);
             }
             _objectsToCreate = new ConcurrentQueue<SyncObjectModel>();
         }

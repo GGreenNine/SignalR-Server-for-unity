@@ -13,15 +13,10 @@ namespace ModelsLibrary
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
-        public ICollection<UserModel> Users { get; set; }
         public ICollection<SyncObjectModel> Models { get; set; }
+        public ICollection<UserModel> Users { get; set; }
 
-        public RoomModel()
-        {
-            this.Users = new HashSet<UserModel>();
-            this.Models = new HashSet<SyncObjectModel>();
-        }
     }
 }
