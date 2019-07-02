@@ -39,7 +39,6 @@ namespace SignalRChat
             {
                 db.Models.Add(clientModel);
                 db.SaveChanges();
-
                 /*
                     * Ищем нашу модель в базе,
                     * После чего присваиваем ей данные о юзере и комнате
@@ -48,19 +47,22 @@ namespace SignalRChat
                     * Она не поймет связей, получается нужно сделать 2 лишнии операции
                     * todo Подумать как это исправить!
                     */
-
                 var dbModel = db.Models.First(x => x.ModelId == clientModel.ModelId);
-                var dbUser = db.Users.Find(userModel.PlayerId);
+                var dbUser = db.Users.Find(userModel.UserName);
                 var dbRoom = db.Rooms.Find(dbUser.RoomModelId);
 
-                dbModel.PlayerId = dbUser.PlayerId;
+                dbModel.UserName = dbUser.UserName;
                 dbModel.RoomModelId = dbRoom.Id;
 
                 db.SaveChanges();
 
                 _broadcaster._objectsToCreate.Enqueue(dbModel);
             }
+        }
 
+        public void UpdateMoving(SyncObjectModel clientModel)
+        {
+            _broadcaster._objectsToUpdate.Enqueue(clientModel);
         }
         /// <summary>
         /// Удаляем модель из базы данных
@@ -102,7 +104,7 @@ namespace SignalRChat
             {
                 int? roomMaxId = db.Rooms.Max(x => x.Id);
                 var room = db.Rooms.Find(roomMaxId);
-                var dbUser = db.Users.Find(userModel.PlayerId);
+                var dbUser = db.Users.Find(userModel.UserName);
 
                 if (room != null)
                 {
@@ -119,21 +121,41 @@ namespace SignalRChat
                 }
             }
         }
-
+        /// <summary>
+        /// Удаляем пользователя из комнаты,
+        /// </summary>
+        /// <param name="user"></param>
         public void LeaveRoom(UserModel user)
         {
             using (var db = new MultiplayerServerDB())
             {
                 var userDb = db.Users.Find(user.UserName);
+
                 if (userDb == null)
                 {
                     _broadcaster.FailedTaskMessage("No such userModel found", user.connectionId);
+
                     return;
                 }
-                var roomId = userDb.RoomModelId;
+
                 userDb.RoomModelId = null;
+
                 db.SaveChanges();
-                _broadcaster.UserLeavedRoom(userDb, roomId.ToString());
+                /*
+                 * Проверяем, если пользователь, покинувший комнату
+                 * был последним пользователем в команате, удалем её. /todo каскадное удаление.
+                 */
+                var dbRoom = db.Rooms.FirstOrDefault(x => x.Id == user.RoomModelId);
+                if (dbRoom != null && dbRoom.Users.Count <= 0)
+                {
+                    db.Rooms.Remove(dbRoom);
+                    db.SaveChanges();
+
+                    Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
+
+                    return;
+                }
+                _broadcaster.UserLeavedRoom(userDb, userDb.RoomModelId.ToString());
             }
             Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
         }

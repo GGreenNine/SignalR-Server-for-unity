@@ -48,7 +48,7 @@ namespace SignalRChat
             user.connectionId = Context.ConnectionId;
             using (var db = new MultiplayerServerDB())
             {
-                user.PlayerId = db.Users.SingleOrDefault((x) => x.UserName == user.UserName).PlayerId;
+                user.PlayerId = db.Users.FirstOrDefault((x) => x.UserName == user.UserName).PlayerId;
                 _broadcaster.UserAuthorization(db.Users.ToArray().Contains(user) ? user : null);
             }
         }

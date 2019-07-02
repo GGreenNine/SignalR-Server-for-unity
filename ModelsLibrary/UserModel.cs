@@ -13,10 +13,10 @@ namespace ModelsLibrary
 {
     public class UserModel : IEquatable<UserModel>
     {
-        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PlayerId { get; set; }
         public string connectionId { get; set; }
+        [Key]
         public string UserName { get; set; }
         public string Password { get; set; }
 

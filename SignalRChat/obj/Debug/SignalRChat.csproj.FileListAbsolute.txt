@@ -82,8 +82,10 @@ D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\ModelsL
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\ModelsLibrary.dll.config
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\EntityFramework.xml
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\EntityFramework.SqlServer.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.AspNet.SignalR.Core.pdb
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.AspNet.SignalR.Core.xml
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.AspNet.SignalR.SqlServer.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.Owin.xml
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.Owin.Host.SystemWeb.xml
@@ -99,5 +101,3 @@ D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\S
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\SignalRChat.csproj.CopyComplete
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\SignalRChat.dll
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\SignalRChat.pdb
-D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.AspNet.SignalR.Core.pdb
-D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb

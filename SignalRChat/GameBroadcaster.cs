@@ -27,6 +27,8 @@ namespace SignalRChat
         public ConcurrentQueue<SyncObjectModel> _transfromsTemporaryStorage = new ConcurrentQueue<SyncObjectModel>();
         public ConcurrentQueue<SyncObjectModel> _objectsToCreate = new ConcurrentQueue<SyncObjectModel>();
         public ConcurrentQueue<SyncObjectModel> _objectsToDelete = new ConcurrentQueue<SyncObjectModel>();
+        public ConcurrentQueue<SyncObjectModel> _objectsToUpdate = new ConcurrentQueue<SyncObjectModel>();
+
         public ConcurrentDictionary<string,SyncObjectModel[]> _sceneUpdate = new ConcurrentDictionary<string, SyncObjectModel[]>();
 
         public GameBroadcaster()
@@ -55,6 +57,11 @@ namespace SignalRChat
 
         public void BroadcastMoving(object state)
         {
+            foreach (var syncObjectModel in _objectsToUpdate)
+            {
+                _hubContext.Clients.Group(syncObjectModel.RoomModelId.ToString(),
+                    syncObjectModel.UserModel.connectionId).GameBroadcaster_UpdateMoving(syncObjectModel);
+            }
         }
 
         public void BroadcastSceneCreate(object state)

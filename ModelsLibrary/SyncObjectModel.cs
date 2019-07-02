@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Numerics;
+using Microsoft.Owin.Security;
 using Unity;
 
 namespace ModelsLibrary
@@ -18,22 +19,47 @@ namespace ModelsLibrary
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string ModelId { get; set; }
-        //Prefab name in Unity Resources folder.
+        /// <summary>
+        /// Prefab name in Unity Resources folder.
+        /// </summary>
         public string PrefabName { get; set; }
 
-        //Room Id witch user belongs
-        public int? PlayerId { get; set; }
+        /// <summary>
+        /// Room Id witch user belongs
+        /// </summary>
+        public string UserName { get; set; }
         public UserModel UserModel { get; set; }
 
+        /// <summary>
+        /// Room id the syncObjectModel is related for
+        /// </summary>
         public int? RoomModelId { get; set; }
         [JsonIgnore]
         public RoomModel Rooms { get; set; }
 
-        //Model current position
-        public string ModelPosition { get; set; }
+        /// <summary>
+        /// Model current rotation
+        /// Doesn't updating by database
+        /// </summary>
+        public string ModelPosition;
 
-        //Model current rotation
-        public string ModelRotation { get; set; }
+        /// <summary>
+        /// Model current rotation
+        /// Doesn't updating by database
+        /// </summary>
+        public string ModelRotation;
+
+        /// <summary>
+        /// Distance in units the object is moving by period of time
+        /// Doesn't storing in database
+        /// </summary>
+        public float Distance;
+
+        /// <summary>
+        /// Rotation in eulers angles the object is turning by period of time
+        /// Doesn't storing in database
+        /// </summary>
+        public float Rotation;
 
     }
 }
