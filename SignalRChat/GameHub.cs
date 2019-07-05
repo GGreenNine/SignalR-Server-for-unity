@@ -96,6 +96,8 @@ namespace SignalRChat
                 if (db.Rooms.Any())
                 {
                     var roomMaxId = db.Rooms.Max(x=> x.Id);
+                    var testRoom = db.Rooms.Find(roomMaxId);
+
                     dbUser.RoomModelId = roomMaxId;
                     db.SaveChanges();
                     await Groups.Add(Context.ConnectionId, roomMaxId.ToString());
@@ -115,36 +117,33 @@ namespace SignalRChat
         /// <param name="user"></param>
         public void LeaveRoom(UserModel user)
         {
-            //using (var db = new MultiplayerServerDB())
-            //{
-            //    var userDb = db.Users.Find(user.UserName);
+            using (var db = new MultiplayerServerDB())
+            {
 
-            //    if (userDb == null)
-            //    {
-            //        _broadcaster.FailedTaskMessage("No such userModel found", user.connectionId);
+                var userDb = db.Users.Find(user.UserName);
+                if (userDb == null)
+                {
+                    _broadcaster.FailedTaskMessage("No such userModel found", user.connectionId);
+                    return;
+                }
+                _broadcaster.UserLeavedRoom(userDb, userDb.RoomModelId.ToString());
+                /*
+                 * Проверяем, если пользователь, покинувший комнату
+                 * был последним пользователем в команате, удалем её. /todo каскадное удаление.
+                 */
+                var dbRoom = db.Rooms.FirstOrDefault(x => x.Id == user.RoomModelId);
+                if (dbRoom != null && dbRoom.Users.Count == 1)
+                {
+                    db.Rooms.Remove(dbRoom);
+                    userDb.RoomModelId = null;
+                    Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
+                }
+                else
+                    userDb.RoomModelId = null;
 
-            //        return;
-            //    }
-
-            //    userDb.RoomModelId = null;
-
-            //    /*
-            //     * Проверяем, если пользователь, покинувший комнату
-            //     * был последним пользователем в команате, удалем её. /todo каскадное удаление.
-            //     */
-            //    var dbRoom = db.Rooms.FirstOrDefault(x => x.RoomModelId == user.RoomModelId);
-            //    if (dbRoom != null && dbRoom.Users.Count <= 0)
-            //    {
-            //        db.Rooms.Remove(dbRoom);
-
-            //        Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
-
-            //        return;
-            //    }
-            //    db.SaveChanges();
-            //    _broadcaster.UserLeavedRoom(userDb, userDb.RoomModelId.ToString());
-            //}
-            //Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
+                db.SaveChanges();
+            }
+            Groups.Remove(Context.ConnectionId, user.RoomModelId.ToString());
         }
 
     }

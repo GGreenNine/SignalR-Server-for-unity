@@ -101,3 +101,44 @@ D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\S
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\SignalRChat.csproj.CopyComplete
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\SignalRChat.dll
 D:\Test projects\NetWork test 2\SignalR Server for unity\SignalRChat\obj\Debug\SignalRChat.pdb
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\SignalRChat.dll.config
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\SignalRChat.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\SignalRChat.pdb
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\EntityFramework.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\EntityFramework.SqlServer.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.AspNet.SignalR.Core.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.AspNet.SignalR.SqlServer.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.Owin.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.Owin.Host.SystemWeb.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.Owin.Security.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.Web.Infrastructure.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\ModelsLibrary.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Newtonsoft.Json.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Owin.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\System.Runtime.CompilerServices.Unsafe.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Unity.Abstractions.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Unity.Container.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\ModelsLibrary.pdb
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\ModelsLibrary.dll.config
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\EntityFramework.xml
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\EntityFramework.SqlServer.xml
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.AspNet.SignalR.Core.pdb
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.AspNet.SignalR.Core.xml
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.AspNet.SignalR.SqlServer.xml
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.Owin.xml
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.Owin.Host.SystemWeb.xml
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Microsoft.Owin.Security.xml
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Newtonsoft.Json.xml
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\System.Runtime.CompilerServices.Unsafe.xml
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Unity.Abstractions.pdb
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\Unity.Container.pdb
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\ru\EntityFramework.resources.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\bin\ru\EntityFramework.SqlServer.resources.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\obj\Debug\SignalRChat.csprojAssemblyReference.cache
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\obj\Debug\SignalRChat.csproj.CoreCompileInputs.cache
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\obj\Debug\SignalRChat.csproj.CopyComplete
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\obj\Debug\SignalRChat.dll
+B:\WorkProjects\SignalR-Server-for-unity\SignalRChat\obj\Debug\SignalRChat.pdb

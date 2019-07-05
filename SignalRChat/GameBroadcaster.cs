@@ -19,7 +19,6 @@ namespace SignalRChat
         private readonly TimeSpan BroadcastInterval =
             TimeSpan.FromMilliseconds(40);
         private readonly IHubContext _hubContext;
-        private  IHubContext _userhubContext;
         private Timer _movingBroadcastLoop;
         private Timer _objectStateBroadcasterLoop;
         private Timer _sceneUpdateBroadcasterLoop;
@@ -59,7 +58,7 @@ namespace SignalRChat
         {
             foreach (var syncObjectModel in _objectsToUpdate)
             {
-                _hubContext.Clients.Group(syncObjectModel.RoomModelId.ToString(),
+                _hubContext.Clients.Group(syncObjectModel.RoomModel.Id.ToString(),
                     syncObjectModel.UserModel.connectionId).GameBroadcaster_UpdateMoving(syncObjectModel);
             }
         }
@@ -68,7 +67,7 @@ namespace SignalRChat
         {
             foreach (var item in _objectsToCreate)
             {
-                //_hubContext.Clients.Group(item.RoomModel.RoomModelId.ToString()).GameBroadcaster_CreateModel(item);
+                _hubContext.Clients.Group(item.RoomModel.Id.ToString(), item.UserModel.connectionId).GameBroadcaster_CreateModel(item);
             }
             _objectsToCreate = new ConcurrentQueue<SyncObjectModel>();
         }
@@ -77,7 +76,7 @@ namespace SignalRChat
         {
             foreach (var item in _objectsToCreate)
             {
-                _hubContext.Clients.Group(item.RoomModelId.ToString()).GameBroadcaster_DeleteModel(item);
+                _hubContext.Clients.Group(item.RoomModel.Id.ToString()).GameBroadcaster_DeleteModel(item);
             }
             _objectsToDelete = new ConcurrentQueue<SyncObjectModel>();
         }
@@ -97,7 +96,7 @@ namespace SignalRChat
         /// <param name="user"></param>
         public void UserJoinedRoom(UserModel user)
         {
-            _hubContext.Clients.Group(user.RoomModelId.ToString()).UserJoinRoomStatus(user);
+            _hubContext.Clients.Group(user.Rooms.Id.ToString()).UserJoinRoomStatus(user);
         }
         /// <summary>
         /// User leaving the room broadcasting to all room clients, exclude current user
