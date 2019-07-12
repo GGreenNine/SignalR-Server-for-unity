@@ -33,42 +33,6 @@ B:\TestProjects\writing-game-server-client-creation-unity3d_game-server-client-c
 B:\TestProjects\writing-game-server-client-creation-unity3d_game-server-client-creation-unity3d-materials\Part1\SignalR Chat\C#\ModelsLibrary\bin\Debug\Unity.Abstractions.pdb
 B:\TestProjects\writing-game-server-client-creation-unity3d_game-server-client-creation-unity3d-materials\Part1\SignalR Chat\C#\ModelsLibrary\bin\Debug\Unity.Container.pdb
 B:\TestProjects\writing-game-server-client-creation-unity3d_game-server-client-creation-unity3d-materials\Part1\SignalR Chat\C#\ModelsLibrary\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\ModelsLibrary.dll.config
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\ModelsLibrary.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\ModelsLibrary.pdb
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\EntityFramework.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\EntityFramework.SqlServer.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SqlServer.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.Security.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Newtonsoft.Json.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Owin.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Unity.Abstractions.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Unity.Container.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\EntityFramework.xml
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\EntityFramework.SqlServer.xml
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.Core.pdb
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SqlServer.xml
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.pdb
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.xml
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.Security.xml
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Newtonsoft.Json.xml
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Unity.Abstractions.pdb
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Unity.Container.pdb
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\ru\EntityFramework.resources.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.csproj.CoreCompileInputs.cache
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.csproj.CopyComplete
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.dll
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.pdb
 B:\WorkProjects\SignalR-Server-for-unity\ModelsLibrary\bin\Debug\ModelsLibrary.dll.config
 B:\WorkProjects\SignalR-Server-for-unity\ModelsLibrary\bin\Debug\ModelsLibrary.dll
 B:\WorkProjects\SignalR-Server-for-unity\ModelsLibrary\bin\Debug\ModelsLibrary.pdb
@@ -106,4 +70,39 @@ B:\WorkProjects\SignalR-Server-for-unity\ModelsLibrary\obj\Debug\ModelsLibrary.c
 B:\WorkProjects\SignalR-Server-for-unity\ModelsLibrary\obj\Debug\ModelsLibrary.csproj.CopyComplete
 B:\WorkProjects\SignalR-Server-for-unity\ModelsLibrary\obj\Debug\ModelsLibrary.dll
 B:\WorkProjects\SignalR-Server-for-unity\ModelsLibrary\obj\Debug\ModelsLibrary.pdb
-D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.csprojAssemblyReference.cache
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\ModelsLibrary.dll.config
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\ModelsLibrary.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\ModelsLibrary.pdb
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\EntityFramework.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\EntityFramework.SqlServer.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SqlServer.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.Security.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Owin.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Unity.Abstractions.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Unity.Container.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\EntityFramework.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\EntityFramework.SqlServer.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.Core.pdb
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SqlServer.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.pdb
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Microsoft.Owin.Security.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Unity.Abstractions.pdb
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\Unity.Container.pdb
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\ru\EntityFramework.resources.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.csproj.CoreCompileInputs.cache
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.csproj.CopyComplete
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.dll
+D:\Test projects\NetWork test 2\SignalR Server for unity\ModelsLibrary\obj\Debug\ModelsLibrary.pdb

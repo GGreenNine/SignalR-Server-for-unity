@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -38,6 +39,7 @@ namespace SignalRChat
         {
             using (var db = new MultiplayerServerDB())
             {
+                Debug.WriteLine(clientModel.ModelId);
                 clientModel.RoomModel = db.Rooms.First(x => x.Id == clientModel.RoomModelId);
                 clientModel.UserModel = db.Users.First(x => x.UserName == clientModel.UserName);
                 db.Models.Add(clientModel);
@@ -50,6 +52,7 @@ namespace SignalRChat
 
         public void UpdateMoving(SyncObjectModel clientModel)
         {
+            Debug.WriteLine($"Distance {clientModel.Distance} Position {clientModel.ModelPosition} Rotation {clientModel.Rotation} Model id {clientModel.ModelId}");
             _broadcaster._objectsToUpdate.Enqueue(clientModel);
         }
         /// <summary>

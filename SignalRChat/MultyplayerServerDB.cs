@@ -24,15 +24,6 @@ namespace SignalRChat
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToOneConstraintIntroductionConvention>();
 
-            modelBuilder.Entity<UserModel>()
-                .HasOptional(p => p.Rooms)
-                .WithMany(t => t.Users)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SyncObjectModel>()
-                .HasOptional(p => p.UserModel)
-                .WithMany(t => t.SyncObjectModel)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<RoomModel>()
                 .HasMany(p=>p.Models)

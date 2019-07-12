@@ -58,8 +58,7 @@ namespace SignalRChat
         {
             foreach (var syncObjectModel in _objectsToUpdate)
             {
-                _hubContext.Clients.Group(syncObjectModel.RoomModel.Id.ToString(),
-                    syncObjectModel.UserModel.connectionId).GameBroadcaster_UpdateMoving(syncObjectModel);
+                _hubContext.Clients.Group(syncObjectModel.RoomModelId.ToString()).GameBroadcaster_UpdateMoving(syncObjectModel);
             }
         }
 
