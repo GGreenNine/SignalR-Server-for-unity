@@ -27,28 +27,28 @@ namespace SignalRChat
         }
         public void RegisterUser(UserModel user)
         {
+            if (user.Equals(null) || user.Password == null || user.UserName == null)
+                return;
             user.connectionId = Context.ConnectionId;
             using (var db = new MultiplayerServerDB())
             {
-                try
-                {
-                    db.Users.AddOrUpdate(user);
-                    db.SaveChanges();
-                    _broadcaster.RegisterUser(user);
-                }
-                catch (Exception e)
-                {
-                    var s = e.Message;
-                }
+                if(db.Users.Count()>0)
+                if (db.Users.Any(x=>x.UserName == user.UserName))
+                    return;
+                db.Users.Add(user);
+                db.SaveChanges();
+                _broadcaster.RegisterUser(user);
             }
         }
 
         public void UserAuthorization(UserModel user)
         {
+            if (user.Equals(null))
+                return;
             user.connectionId = Context.ConnectionId;
             using (var db = new MultiplayerServerDB())
             {
-                user.PlayerId = db.Users.FirstOrDefault((x) => x.UserName == user.UserName).PlayerId;
+                user.PlayerId = db.Users.FirstOrDefault(x => x.UserName != null && x.UserName == user.UserName).PlayerId;
                 _broadcaster.UserAuthorization(db.Users.ToArray().Contains(user) ? user : null);
             }
         }

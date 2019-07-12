@@ -42,10 +42,6 @@ namespace SignalRChat
         {
             _hubContext.Clients.Client(user.connectionId).RegistrateStatus(user);
         }
-        public void RegisterUser(UserModel user, string connectionID)
-        {
-            _hubContext.Clients.Client(connectionID).RegistrateStatus(user);
-        }
         /// <summary>
         /// User authorization broadcast
         /// </summary>

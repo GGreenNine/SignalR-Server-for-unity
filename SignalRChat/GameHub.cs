@@ -38,13 +38,12 @@ namespace SignalRChat
         {
             using (var db = new MultiplayerServerDB())
             {
+                clientModel.RoomModel = db.Rooms.First(x => x.Id == clientModel.RoomModelId);
+                clientModel.UserModel = db.Users.First(x => x.UserName == clientModel.UserName);
                 db.Models.Add(clientModel);
                 db.SaveChanges();
 
                 var dbModel = db.Models.Find(clientModel.ModelId);
-
-                var test1 = db.Rooms.Include(x => x.Users).Include(x => x.Models).ToList(); 
-
                 _broadcaster._objectsToCreate.Enqueue(dbModel);
             }
         }
@@ -95,13 +94,15 @@ namespace SignalRChat
 
                 if (db.Rooms.Any())
                 {
-                    var roomMaxId = db.Rooms.Max(x=> x.Id);
-                    var testRoom = db.Rooms.Find(roomMaxId);
+                    var randomRoom = db.Rooms.FirstOrDefault();
 
-                    dbUser.RoomModelId = roomMaxId;
-                    db.SaveChanges();
-                    await Groups.Add(Context.ConnectionId, roomMaxId.ToString());
-                    _broadcaster.UserJoinedRoom(dbUser);
+                    if (dbUser != null)
+                    {
+                        dbUser.Rooms = randomRoom;
+                        db.SaveChanges();
+                        if (randomRoom != null) await Groups.Add(Context.ConnectionId, randomRoom.Id.ToString());
+                        _broadcaster.UserJoinedRoom(dbUser);
+                    }
                 }
                 else
                 {
@@ -129,7 +130,7 @@ namespace SignalRChat
                 _broadcaster.UserLeavedRoom(userDb, userDb.RoomModelId.ToString());
                 /*
                  * Проверяем, если пользователь, покинувший комнату
-                 * был последним пользователем в команате, удалем её. /todo каскадное удаление.
+                 * был последним пользователем в команате, удалем её. 
                  */
                 var dbRoom = db.Rooms.FirstOrDefault(x => x.Id == user.RoomModelId);
                 if (dbRoom != null && dbRoom.Users.Count == 1)

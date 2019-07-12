@@ -33,7 +33,7 @@ namespace ModelsLibrary
         /// <summary>
         /// Room id the syncObjectModel is related for
         /// </summary>
-        public int RoomModelId { get; set; }
+        public int? RoomModelId { get; set; }
         public RoomModel RoomModel { get; set; }
 
         /// <summary>
